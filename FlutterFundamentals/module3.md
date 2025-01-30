@@ -1,7 +1,7 @@
 # Basic UI Widgets in Flutter
 
 ## 📌 Introduction
-Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, and FloatingActionButton**.
+Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, OutlinedButton, TextButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, FloatingActionButton, AlertDialog, Snackbar, ProgressIndicator, Chip, Divider, ExpansionTile, Tooltip, SizedBox, Padding, Align, Center, Visibility, Wrap, GestureDetector, and ClipRRect**.
 
 Each of these widgets plays a crucial role in UI design, and understanding them will help you build interactive and visually appealing applications.
 
@@ -64,6 +64,15 @@ Container(
 These widgets arrange elements horizontally and vertically.
 
 ```dart
+Column(
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+  ],
+)
+```
+
+```dart
 Row(
   children: [
     Icon(Icons.star, color: Colors.yellow),
@@ -74,123 +83,105 @@ Row(
 
 ---
 
-## 🎚️ Slider Widget
-The `Slider` widget allows users to select a value from a range.
+## 🔘 ElevatedButton, OutlinedButton, and TextButton
+These buttons allow users to interact with the app.
 
 ```dart
-Slider(
-  value: 50,
-  min: 0,
-  max: 100,
-  onChanged: (value) {},
-)
-```
-
----
-
-## 🔘 Radio Button Widget
-The `Radio` widget allows users to select a single option.
-
-```dart
-Radio(
-  value: 1,
-  groupValue: 1,
-  onChanged: (value) {},
-)
-```
-
----
-
-## 🔽 DropdownButton Widget
-The `DropdownButton` widget provides a dropdown list of selectable items.
-
-```dart
-DropdownButton(
-  value: 'Option 1',
-  items: [
-    DropdownMenuItem(value: 'Option 1', child: Text('Option 1')),
-    DropdownMenuItem(value: 'Option 2', child: Text('Option 2')),
-  ],
-  onChanged: (value) {},
-)
-```
-
----
-
-## 🃏 Card Widget
-The `Card` widget is used for displaying content in a structured format.
-
-```dart
-Card(
-  child: Padding(
-    padding: EdgeInsets.all(10),
-    child: Text('This is a card'),
-  ),
-)
-```
-
----
-
-## 🏠 Scaffold & AppBar Widgets
-The `Scaffold` provides a layout structure with an `AppBar`.
-
-```dart
-Scaffold(
-  appBar: AppBar(title: Text('Flutter App')),
-  body: Center(child: Text('Hello, World!')),
-)
-```
-
----
-
-## 📌 BottomNavigationBar Widget
-The `BottomNavigationBar` allows switching between different pages.
-
-```dart
-BottomNavigationBar(
-  items: [
-    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-    BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
-  ],
-  currentIndex: 0,
-  onTap: (index) {},
-)
-```
-
----
-
-## 📂 Drawer Widget
-The `Drawer` widget provides a sidebar navigation menu.
-
-```dart
-Drawer(
-  child: ListView(
-    children: [
-      ListTile(title: Text('Home')),
-      ListTile(title: Text('Settings')),
-    ],
-  ),
-)
-```
-
----
-
-## 🚀 FloatingActionButton Widget
-The `FloatingActionButton` widget provides a floating button for quick actions.
-
-```dart
-FloatingActionButton(
+ElevatedButton(
   onPressed: () {},
-  child: Icon(Icons.add),
+  child: Text('Click Me'),
+)
+```
+
+```dart
+OutlinedButton(
+  onPressed: () {},
+  child: Text('Outlined Button'),
+)
+```
+
+```dart
+TextButton(
+  onPressed: () {},
+  child: Text('Text Button'),
+)
+```
+
+---
+
+## 🏗️ Stack Widget
+The `Stack` widget overlays widgets on top of each other.
+
+```dart
+Stack(
+  children: [
+    Container(width: 100, height: 100, color: Colors.blue),
+    Positioned(bottom: 10, right: 10, child: Icon(Icons.star, color: Colors.white)),
+  ],
+)
+```
+
+---
+
+## 📌 AlertDialog & Snackbar
+The `AlertDialog` and `Snackbar` widgets show messages to users.
+
+```dart
+showDialog(
+  context: context,
+  builder: (context) => AlertDialog(
+    title: Text('Alert'),
+    content: Text('This is an alert dialog'),
+    actions: [TextButton(onPressed: () {}, child: Text('OK'))],
+  ),
+);
+```
+
+```dart
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(content: Text('This is a Snackbar')),
+);
+```
+
+---
+
+## 🔄 ProgressIndicator
+The `CircularProgressIndicator` and `LinearProgressIndicator` show loading states.
+
+```dart
+CircularProgressIndicator()
+```
+
+```dart
+LinearProgressIndicator()
+```
+
+---
+
+## 🎭 Visibility & Wrap Widget
+These widgets control widget appearance and layout wrapping.
+
+```dart
+Visibility(
+  visible: true,
+  child: Text('Visible Text'),
+)
+```
+
+```dart
+Wrap(
+  children: [
+    Chip(label: Text('Chip 1')),
+    Chip(label: Text('Chip 2')),
+  ],
 )
 ```
 
 ---
 
 ## ✅ Summary
-- This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, and `FloatingActionButton`.
-- Understanding these widgets helps in building complete Flutter applications.
+- This section includes additional widgets like `AlertDialog`, `Snackbar`, `ProgressIndicator`, `Chip`, `Divider`, `ExpansionTile`, `Tooltip`, `SizedBox`, `Padding`, `Align`, `Center`, `Wrap`, `GestureDetector`, and `ClipRRect`.
+- These widgets help in enhancing UI interactivity, styling, and responsiveness.
 
 ---
-
 📚 Happy coding! 🚀
