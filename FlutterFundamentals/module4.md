@@ -85,10 +85,25 @@ class SecondScreen extends StatelessWidget {
 - `Navigator.push()` → Moves to `SecondScreen`.
 - `Navigator.pop()` → Goes back to `FirstScreen`.
 
-📍 **Diagram:**
+📍 **Other push/pop methods:**
+- `Navigator.pushReplacement()` → Replaces the current screen with a new one.
+- `Navigator.pushAndRemoveUntil()` → Removes all previous routes until a specific condition is met.
+
+Example for `pushReplacement()`:
+```dart
+Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(builder: (context) => NewScreen()),
+);
 ```
-First Screen → Second Screen  (Push)
-Second Screen → First Screen  (Pop)
+
+Example for `pushAndRemoveUntil()`:
+```dart
+Navigator.pushAndRemoveUntil(
+  context,
+  MaterialPageRoute(builder: (context) => NewScreen()),
+  (Route<dynamic> route) => false, // Removes all previous screens
+);
 ```
 
 ---
@@ -149,12 +164,11 @@ class SecondScreen extends StatelessWidget {
 - `initialRoute: '/'` → Sets the first screen.
 - `routes: { '/': (context) => HomeScreen(), '/second': (context) => SecondScreen() }` → Defines routes.
 - `Navigator.pushNamed(context, '/second');` → Navigates using a route name.
+- `Navigator.pop(context);` → Returns to the previous screen.
 
-📍 **Diagram:**
-```
-/ (Home) → /second (PushNamed)
-/second → / (Pop)
-```
+📍 **Other Named Route methods:**
+- `Navigator.pushReplacementNamed(context, '/newScreen')` → Replaces the current screen with another.
+- `Navigator.pushNamedAndRemoveUntil(context, '/newScreen', (route) => false)` → Removes all previous routes before navigating.
 
 ---
 
@@ -162,12 +176,15 @@ class SecondScreen extends StatelessWidget {
 | Navigation Type | Description |
 |---------------|-------------|
 | `push() / pop()` | Basic navigation between screens |
+| `pushReplacement()` | Replaces the current screen with a new one |
+| `pushAndRemoveUntil()` | Removes all previous routes until a condition is met |
 | Named Routes | Organized navigation using route names |
+| `pushReplacementNamed()` | Replaces a named route |
+| `pushNamedAndRemoveUntil()` | Removes all previous named routes before navigating |
 
 🔹 **For small apps**, `push` and `pop` are easy.
 🔹 **For large apps**, **Named Routes** provide better structure.
 
 ---
-
 
 📚 Happy coding! 😊
