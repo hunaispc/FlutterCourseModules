@@ -222,14 +222,6 @@ Stack(
 ```
 
 ---
-# Basic UI Widgets in Flutter
-
-## 📌 Introduction
-Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, OutlinedButton, TextButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, FloatingActionButton, AlertDialog, Snackbar, ProgressIndicator, Chip, Divider, ExpansionTile, Tooltip, SizedBox, Padding, Align, Center, Visibility, Wrap, GestureDetector, ClipRRect, Stepper, TabBar, DatePicker, TimePicker**.
-
-Each of these widgets plays a crucial role in UI design, and understanding them will help you build interactive and visually appealing applications.
-
----
 
 ## 📏 SizedBox Widget
 The `SizedBox` widget is used to create a box with a specific height and width.
