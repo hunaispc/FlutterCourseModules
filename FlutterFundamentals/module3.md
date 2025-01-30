@@ -195,7 +195,33 @@ Stepper(
 ```
 
 ---
+## 📝 TextField Widget
+The `TextField` widget allows users to enter text.
 
+```dart
+TextField(
+  decoration: InputDecoration(
+    labelText: 'Enter your name',
+    border: OutlineInputBorder(),
+  ),
+)
+```
+
+---
+
+## 🏗️ Stack Widget
+The `Stack` widget overlays widgets on top of each other.
+
+```dart
+Stack(
+  children: [
+    Container(width: 100, height: 100, color: Colors.blue),
+    Positioned(bottom: 10, right: 10, child: Icon(Icons.star, color: Colors.white)),
+  ],
+)
+```
+
+---
 ## ✅ Summary
 - This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, `FloatingActionButton`, `DatePicker`, `TimePicker`, `Stepper`, `TabBar`, and `ProgressIndicator`.
 - Understanding these widgets will help in developing fully functional Flutter applications.
