@@ -1,4 +1,4 @@
-# 🚗 Car Rent App UI Design Task
+# 🚗 Car Rent Mobile App UI Design Task
 
 ## 🎯 Task Overview
 Your task is to design the **Car Rent App UI** based on the provided Figma design. The goal is to create a **pixel-perfect, responsive UI** in Flutter that matches the design layout for different screen sizes (mobile, tablet, and web).
