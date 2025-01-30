@@ -160,7 +160,17 @@ TextButton(
 ```
 
 ---
+### FloatingActionButton
+A circular button used for primary actions.
 
+```dart
+FloatingActionButton(
+  onPressed: () {},
+  child: Icon(Icons.add),
+)
+```
+
+---
 ## 📅 DatePicker & TimePicker
 These widgets allow users to select a date or time.
 
@@ -316,7 +326,91 @@ ScaffoldMessenger.of(context).showSnackBar(
 ```
 
 ---
+## 🏠 Scaffold & AppBar
+The `Scaffold` widget provides a structure for the visual interface, including an `AppBar`.
 
+```dart
+Scaffold(
+  appBar: AppBar(title: Text('Flutter App')),
+  body: Center(child: Text('Hello, World!')),
+)
+```
+
+---
+
+## 📌 BottomNavigationBar Widget
+The `BottomNavigationBar` allows users to navigate between different sections of the app.
+
+```dart
+BottomNavigationBar(
+  items: [
+    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+    BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+  ],
+  currentIndex: 0,
+  onTap: (index) {},
+)
+```
+
+---
+
+## 📂 Drawer Widget
+The `Drawer` widget provides a sidebar navigation menu.
+
+```dart
+Drawer(
+  child: ListView(
+    children: [
+      ListTile(title: Text('Home')),
+      ListTile(title: Text('Settings')),
+    ],
+  ),
+)
+```
+
+---
+
+## 🏷️ TabBar Widget
+The `TabBar` widget allows navigation between different pages.
+
+```dart
+DefaultTabController(
+  length: 3,
+  child: Scaffold(
+    appBar: AppBar(
+      bottom: TabBar(
+        tabs: [
+          Tab(text: 'Tab 1'),
+          Tab(text: 'Tab 2'),
+          Tab(text: 'Tab 3'),
+        ],
+      ),
+    ),
+    body: TabBarView(
+      children: [
+        Center(child: Text('Content 1')),
+        Center(child: Text('Content 2')),
+        Center(child: Text('Content 3')),
+      ],
+    ),
+  ),
+)
+```
+
+---
+
+## 🔄 ProgressIndicator
+The `CircularProgressIndicator` and `LinearProgressIndicator` show loading states.
+
+```dart
+CircularProgressIndicator()
+```
+
+```dart
+LinearProgressIndicator()
+```
+
+---
 ## ✅ Summary
 - This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, `FloatingActionButton`, `DatePicker`, `TimePicker`, `Stepper`, `TabBar`, and `ProgressIndicator`.
 - Understanding these widgets will help in developing fully functional Flutter applications.
