@@ -94,5 +94,20 @@ void main() {
 3. Write a Dart function that takes a list of integers as a parameter and returns a new list with all the even numbers from the original list.
 4. Write a Dart function that takes a list of strings as a parameter and returns a new list with all the strings in uppercase.
 5. Write a Dart function that takes one integer as a parameter and returns its multiplication table.
+6. **Write a Dart function called `sum`**
+   - The function should take two integer parameters and return their sum.
+
+7. **Write a Dart function called `printEvenNumbers`**
+   - The function should take an integer parameter `limit` and print all even numbers from 1 to `limit`.
+   - Test the function by calling it with different values.
+
+8. **Create a Dart function called `printEmployeeInfo`**
+   - The function should take a named parameter `employee` of type `Map<String, dynamic>`.
+   - The `employee` map should have keys such as `'name'`, `'age'`, `'designation'`, etc., with their corresponding values.
+   - Inside the function, print the employee's information in a structured format.
+
+9. **Create a Dart function called `printUserInfo`**
+   - The function should take named parameters `name`, `age`, and `address`.
+   - The function should print the user's information in a formatted way.
 
 ---
