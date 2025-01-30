@@ -178,8 +178,4 @@ Switch(value: true, onChanged: (newValue) {})
 - `ElevatedButton`, `TextField`, `Checkbox`, and `Switch` add interactivity.
 
 ---
-
-## 🎯 Next Section: Navigation & Routes
-Stay tuned for the next topic, where we’ll dive into **Navigation & Routes** to manage app screens efficiently!
-
 📚 Happy coding! 🚀
