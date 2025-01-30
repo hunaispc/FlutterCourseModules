@@ -181,7 +181,108 @@ void main() {
 ✅ **Consider `flutter_screenutil` for precise scaling.**
 
 ---
+---
 
+## 📐 Full Example: Building a Responsive UI
+This example combines **MediaQuery**, **LayoutBuilder**, **Flexible/Expanded**, and **flutter_screenutil** to create a fully responsive UI.
+
+### ✅ Example: Adaptive UI for Mobile, Tablet, and Web
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+void main() {
+  runApp(ScreenUtilInit(
+    designSize: Size(360, 690), // Base design size for mobile
+    builder: () => MaterialApp(
+      home: ResponsiveHomePage(),
+    ),
+  ));
+}
+
+class ResponsiveHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Responsive UI Example')),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < 600) {
+            return MobileLayout();
+          } else if (constraints.maxWidth < 900) {
+            return TabletLayout();
+          } else {
+            return WebLayout();
+          }
+        },
+      ),
+    );
+  }
+}
+
+class MobileLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(16.w),
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(color: Colors.blue, child: Center(child: Text('Mobile View', style: TextStyle(fontSize: 18.sp)))),
+          ),
+          SizedBox(height: 10.h),
+          Expanded(
+            child: Container(color: Colors.green, child: Center(child: Text('Content', style: TextStyle(fontSize: 16.sp)))),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TabletLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(color: Colors.blue, child: Center(child: Text('Tablet Sidebar', style: TextStyle(fontSize: 22.sp)))),
+        ),
+        Expanded(
+          flex: 2,
+          child: Container(color: Colors.green, child: Center(child: Text('Tablet Content', style: TextStyle(fontSize: 20.sp)))),
+        ),
+      ],
+    );
+  }
+}
+
+class WebLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(color: Colors.blue, child: Center(child: Text('Web Sidebar', style: TextStyle(fontSize: 24.sp)))),
+        ),
+        Expanded(
+          flex: 3,
+          child: Container(color: Colors.green, child: Center(child: Text('Web Content', style: TextStyle(fontSize: 22.sp)))),
+        ),
+      ],
+    );
+  }
+}
+```
+
+### 📌 Explanation:
+- **`LayoutBuilder`**: Determines whether the layout should be for mobile, tablet, or web.
+- **`flutter_screenutil`**: Helps in scaling text and padding/margins.
+- **`Expanded & Flexible`**: Used to distribute space dynamically.
+- **Adaptive Widgets**: Different UIs for mobile, tablet, and web views.
+
+---
 ## ✅ Summary
 | Technique | Use Case |
 |-----------|---------|
