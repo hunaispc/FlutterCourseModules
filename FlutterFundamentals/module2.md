@@ -130,7 +130,4 @@ void main() {
 
 ---
 
-## 🎯 Next Section: Basic UI Widgets
-Stay tuned for the next topic, where we'll explore essential UI components like `Text`, `Image`, `Container`, `Row`, and `Column`!
-
 📚 Happy coding! 🚀
