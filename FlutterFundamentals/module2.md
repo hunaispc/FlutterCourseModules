@@ -37,11 +37,6 @@ void main() {
 }
 ```
 
-#### 🖼️ Stateless Widget Lifecycle
-![Stateless Widget Lifecycle](https://images.pexels.com/photos/981041/pexels-photo-981041.jpeg?cs=srgb&dl=action-american-car-asphalt-981041.jpg&fm=jpg)
-
----
-
 ### 🔵 Stateful Widgets
 A **Stateful Widget** can change dynamically during the app’s lifecycle. It maintains an internal state and updates the UI when necessary.
 
@@ -94,10 +89,6 @@ void main() {
   runApp(MaterialApp(home: MyStatefulWidget()));
 }
 ```
-
-#### 🖼️ Stateful Widget Lifecycle
-![Stateful Widget Lifecycle](https://raw.githubusercontent.com/flutter/assets-for-api-docs/main/assets/widgets/stateful_widget_lifecycle.png)
-
 ---
 
 ## 🔄 Key Differences Between Stateless and Stateful Widgets
