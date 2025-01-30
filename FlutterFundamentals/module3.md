@@ -411,8 +411,224 @@ LinearProgressIndicator()
 ```
 
 ---
+## ✅ Additional Widgets
+
+### ✅ Checkbox Widget
+The `Checkbox` widget allows users to toggle between checked and unchecked states.
+
+```dart
+Checkbox(
+  value: true,
+  onChanged: (bool? newValue) {},
+)
+```
+
+---
+
+### 🔄 Switch Widget
+The `Switch` widget is used to toggle between ON and OFF states.
+
+```dart
+Switch(
+  value: true,
+  onChanged: (bool newValue) {},
+)
+```
+
+---
+
+### 🎚️ Slider Widget
+The `Slider` widget allows users to select a value from a range.
+
+```dart
+Slider(
+  value: 50,
+  min: 0,
+  max: 100,
+  onChanged: (double newValue) {},
+)
+```
+
+---
+
+### 🎯 Radio Widget
+The `Radio` widget allows users to select a single option from multiple choices.
+
+```dart
+Radio(
+  value: 1,
+  groupValue: 1,
+  onChanged: (int? newValue) {},
+)
+```
+
+---
+
+### 🔽 DropdownButton Widget
+The `DropdownButton` widget provides a dropdown list of selectable items.
+
+```dart
+DropdownButton(
+  value: 'Option 1',
+  items: [
+    DropdownMenuItem(value: 'Option 1', child: Text('Option 1')),
+    DropdownMenuItem(value: 'Option 2', child: Text('Option 2')),
+  ],
+  onChanged: (String? newValue) {},
+)
+```
+
+---
+
+### 🏷️ Card Widget
+The `Card` widget is used for displaying content in a structured format.
+
+```dart
+Card(
+  child: Padding(
+    padding: EdgeInsets.all(10),
+    child: Text('This is a card'),
+  ),
+)
+```
+
+---
+
+### 🎭 Chip Widget
+The `Chip` widget is used to display a small piece of information.
+
+```dart
+Chip(
+  label: Text('Flutter'),
+  avatar: Icon(Icons.tag),
+)
+```
+
+---
+
+### 🔄 Divider Widget
+The `Divider` widget creates a horizontal separator.
+
+```dart
+Divider(color: Colors.grey)
+```
+
+---
+
+### 📂 ExpansionTile Widget
+The `ExpansionTile` widget is used to create expandable sections.
+
+```dart
+ExpansionTile(
+  title: Text('Tap to Expand'),
+  children: [
+    ListTile(title: Text('Option 1')),
+    ListTile(title: Text('Option 2')),
+  ],
+)
+```
+
+---
+
+### 🏷️ Tooltip Widget
+The `Tooltip` widget displays a message when a user long-presses on a widget.
+
+```dart
+Tooltip(
+  message: 'This is a tooltip',
+  child: Icon(Icons.info),
+)
+```
+
+---
+
+### 📏 Padding Widget
+The `Padding` widget adds spacing around a child widget.
+
+```dart
+Padding(
+  padding: EdgeInsets.all(16.0),
+  child: Text('Padded Text'),
+)
+```
+
+---
+
+### 📍 Align Widget
+The `Align` widget positions its child within itself.
+
+```dart
+Align(
+  alignment: Alignment.center,
+  child: Text('Centered Text'),
+)
+```
+
+---
+
+### 🎯 Center Widget
+The `Center` widget aligns a child in the middle of its parent.
+
+```dart
+Center(
+  child: Text('Centered Text'),
+)
+```
+
+---
+
+### 👁️ Visibility Widget
+The `Visibility` widget controls whether a widget is visible.
+
+```dart
+Visibility(
+  visible: true,
+  child: Text('Visible Text'),
+)
+```
+
+---
+
+### 🔄 Wrap Widget
+The `Wrap` widget wraps its children to avoid overflow.
+
+```dart
+Wrap(
+  children: [
+    Chip(label: Text('Chip 1')),
+    Chip(label: Text('Chip 2')),
+  ],
+)
+```
+
+---
+
+### 🎯 GestureDetector Widget
+The `GestureDetector` widget detects gestures like taps, swipes, and long presses.
+
+```dart
+GestureDetector(
+  onTap: () {
+    print('Tapped!');
+  },
+  child: Container(width: 100, height: 100, color: Colors.blue),
+)
+```
+
+---
+
+### 🔲 ClipRRect Widget
+The `ClipRRect` widget applies rounded corners to its child.
+
+```dart
+ClipRRect(
+  borderRadius: BorderRadius.circular(10),
+  child: Image.network('https://flutter.dev/images/flutter-logo-sharing.png'),
+)
+```
+
+---
 ## ✅ Summary
-- This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, `FloatingActionButton`, `DatePicker`, `TimePicker`, `Stepper`, `TabBar`, and `ProgressIndicator`.
 - Understanding these widgets will help in developing fully functional Flutter applications.
 
 ---
