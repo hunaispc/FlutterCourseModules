@@ -1,146 +1,196 @@
 # Basic UI Widgets in Flutter
 
 ## 📌 Introduction
-Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, TextField, Checkbox, and Switch**.
+Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, and FloatingActionButton**.
 
 Each of these widgets plays a crucial role in UI design, and understanding them will help you build interactive and visually appealing applications.
 
 ---
 
-## 📋 ListView Widget
-The `ListView` widget is a scrollable list of widgets.
-
-### 🔹 Types of ListView:
-
-#### 1️⃣ ListView()
-A simple list that displays all its children at once.
+## 📝 Text Widget
+The `Text` widget is used to display simple text on the screen.
 
 ```dart
-ListView(
+Text(
+  'Hello, Flutter!',
+  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+  textAlign: TextAlign.center,
+)
+```
+
+---
+
+## 🖼️ Image Widget
+The `Image` widget allows displaying images from assets or network.
+
+```dart
+Image.network(
+  'https://flutter.dev/images/flutter-logo-sharing.png',
+  width: 100,
+  height: 100,
+)
+```
+
+---
+
+## 🔘 Icon Widget
+The `Icon` widget is used to display icons.
+
+```dart
+Icon(
+  Icons.favorite,
+  color: Colors.red,
+  size: 50,
+)
+```
+
+---
+
+## 📦 Container Widget
+The `Container` widget is used for styling and layout.
+
+```dart
+Container(
+  width: 100,
+  height: 100,
+  color: Colors.blue,
+  padding: EdgeInsets.all(10),
+)
+```
+
+---
+
+## 📏 Row & Column Widgets
+These widgets arrange elements horizontally and vertically.
+
+```dart
+Row(
   children: [
-    ListTile(title: Text('Item 1')),
-    ListTile(title: Text('Item 2')),
-    ListTile(title: Text('Item 3')),
+    Icon(Icons.star, color: Colors.yellow),
+    Text('Flutter'),
   ],
 )
 ```
 
-#### 2️⃣ ListView.builder()
-Creates list items lazily as they scroll into view, optimizing performance.
+---
+
+## 🎚️ Slider Widget
+The `Slider` widget allows users to select a value from a range.
 
 ```dart
-ListView.builder(
-  itemCount: 10,
-  itemBuilder: (context, index) {
-    return ListTile(title: Text('Item \$index'));
-  },
+Slider(
+  value: 50,
+  min: 0,
+  max: 100,
+  onChanged: (value) {},
 )
 ```
 
-#### 3️⃣ ListView.separated()
-Adds dividers between list items.
+---
+
+## 🔘 Radio Button Widget
+The `Radio` widget allows users to select a single option.
 
 ```dart
-ListView.separated(
-  itemCount: 5,
-  separatorBuilder: (context, index) => Divider(),
-  itemBuilder: (context, index) {
-    return ListTile(title: Text('Item \$index'));
-  },
+Radio(
+  value: 1,
+  groupValue: 1,
+  onChanged: (value) {},
 )
 ```
 
-#### 4️⃣ ListView.custom()
-Allows for a completely customizable list layout.
+---
+
+## 🔽 DropdownButton Widget
+The `DropdownButton` widget provides a dropdown list of selectable items.
 
 ```dart
-ListView.custom(
-  childrenDelegate: SliverChildBuilderDelegate(
-    (context, index) => ListTile(title: Text('Custom Item \$index')),
-    childCount: 5,
+DropdownButton(
+  value: 'Option 1',
+  items: [
+    DropdownMenuItem(value: 'Option 1', child: Text('Option 1')),
+    DropdownMenuItem(value: 'Option 2', child: Text('Option 2')),
+  ],
+  onChanged: (value) {},
+)
+```
+
+---
+
+## 🃏 Card Widget
+The `Card` widget is used for displaying content in a structured format.
+
+```dart
+Card(
+  child: Padding(
+    padding: EdgeInsets.all(10),
+    child: Text('This is a card'),
   ),
 )
 ```
 
 ---
 
-## 🔲 GridView Widget
-The `GridView` widget arranges items in a grid pattern.
-
-### 🔹 Types of GridView:
-
-#### 1️⃣ GridView.count()
-Creates a grid with a fixed number of columns.
+## 🏠 Scaffold & AppBar Widgets
+The `Scaffold` provides a layout structure with an `AppBar`.
 
 ```dart
-GridView.count(
-  crossAxisCount: 2,
-  children: [
-    Container(color: Colors.red),
-    Container(color: Colors.blue),
-    Container(color: Colors.green),
-    Container(color: Colors.yellow),
+Scaffold(
+  appBar: AppBar(title: Text('Flutter App')),
+  body: Center(child: Text('Hello, World!')),
+)
+```
+
+---
+
+## 📌 BottomNavigationBar Widget
+The `BottomNavigationBar` allows switching between different pages.
+
+```dart
+BottomNavigationBar(
+  items: [
+    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+    BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
   ],
+  currentIndex: 0,
+  onTap: (index) {},
 )
 ```
 
-#### 2️⃣ GridView.extent()
-Creates a grid where each item has a maximum cross-axis extent.
+---
+
+## 📂 Drawer Widget
+The `Drawer` widget provides a sidebar navigation menu.
 
 ```dart
-GridView.extent(
-  maxCrossAxisExtent: 100,
-  children: [
-    Container(color: Colors.purple),
-    Container(color: Colors.orange),
-    Container(color: Colors.pink),
-    Container(color: Colors.cyan),
-  ],
+Drawer(
+  child: ListView(
+    children: [
+      ListTile(title: Text('Home')),
+      ListTile(title: Text('Settings')),
+    ],
+  ),
 )
 ```
 
-#### 3️⃣ GridView.builder()
-Creates grid items dynamically as they scroll into view.
+---
+
+## 🚀 FloatingActionButton Widget
+The `FloatingActionButton` widget provides a floating button for quick actions.
 
 ```dart
-GridView.builder(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
-    crossAxisSpacing: 10,
-    mainAxisSpacing: 10,
-  ),
-  itemCount: 6,
-  itemBuilder: (context, index) {
-    return Container(color: Colors.blue);
-  },
-)
-```
-
-#### 4️⃣ GridView.custom()
-Allows for a completely customizable grid layout.
-
-```dart
-GridView.custom(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 3,
-  ),
-  childrenDelegate: SliverChildBuilderDelegate(
-    (context, index) => Container(color: Colors.grey),
-    childCount: 6,
-  ),
+FloatingActionButton(
+  onPressed: () {},
+  child: Icon(Icons.add),
 )
 ```
 
 ---
 
 ## ✅ Summary
-- `ListView` has four types: `ListView()`, `ListView.builder()`, `ListView.separated()`, and `ListView.custom()`.
-- `GridView` has four types: `GridView.count()`, `GridView.extent()`, `GridView.builder()`, and `GridView.custom()`.
-- Using `builder()` versions helps improve performance in large lists and grids.
+- This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, and `FloatingActionButton`.
+- Understanding these widgets helps in building complete Flutter applications.
 
 ---
-
-## 🎯 Next Section: Navigation & Routes
-Stay tuned for the next topic, where we’ll dive into **Navigation & Routes** to manage app screens efficiently!
 
 📚 Happy coding! 🚀
