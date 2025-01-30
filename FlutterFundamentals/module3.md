@@ -1,19 +1,90 @@
 # Basic UI Widgets in Flutter
 
 ## 📌 Introduction
-Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, OutlinedButton, TextButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, FloatingActionButton, AlertDialog, Snackbar, ProgressIndicator, Chip, Divider, ExpansionTile, Tooltip, SizedBox, Padding, Align, Center, Visibility, Wrap, GestureDetector, and ClipRRect**.
+Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, OutlinedButton, TextButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, FloatingActionButton, AlertDialog, Snackbar, ProgressIndicator, Chip, Divider, ExpansionTile, Tooltip, SizedBox, Padding, Align, Center, Visibility, Wrap, GestureDetector, ClipRRect, Stepper, TabBar, DatePicker, TimePicker**.
 
 Each of these widgets plays a crucial role in UI design, and understanding them will help you build interactive and visually appealing applications.
 
 ---
 
-## 📋 ListView Widget
-The `ListView` widget is a scrollable list of widgets.
+## 📝 Text Widget
+The `Text` widget is used to display simple text on the screen.
 
-### 🔹 Types of ListView:
+```dart
+Text(
+  'Hello, Flutter!',
+  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+  textAlign: TextAlign.center,
+)
+```
 
-#### 1️⃣ ListView()
-A simple list that displays all its children at once.
+---
+
+## 🖼️ Image Widget
+The `Image` widget allows displaying images from assets or network.
+
+```dart
+Image.network(
+  'https://flutter.dev/images/flutter-logo-sharing.png',
+  width: 100,
+  height: 100,
+)
+```
+
+---
+
+## 🔘 Icon Widget
+The `Icon` widget is used to display icons.
+
+```dart
+Icon(
+  Icons.favorite,
+  color: Colors.red,
+  size: 50,
+)
+```
+
+---
+
+## 📦 Container Widget
+The `Container` widget is used for styling and layout.
+
+```dart
+Container(
+  width: 100,
+  height: 100,
+  color: Colors.blue,
+  padding: EdgeInsets.all(10),
+)
+```
+
+---
+
+## 📏 Row & Column Widgets
+These widgets arrange elements horizontally and vertically.
+
+```dart
+Column(
+  children: [
+    Text('First Item'),
+    Text('Second Item'),
+  ],
+)
+```
+
+```dart
+Row(
+  children: [
+    Icon(Icons.star, color: Colors.yellow),
+    Text('Flutter'),
+  ],
+)
+```
+
+---
+
+## 📋 ListView & GridView Widgets
+### ListView Types
 
 ```dart
 ListView(
@@ -25,9 +96,6 @@ ListView(
 )
 ```
 
-#### 2️⃣ ListView.builder()
-Creates list items lazily as they scroll into view, optimizing performance.
-
 ```dart
 ListView.builder(
   itemCount: 10,
@@ -37,40 +105,7 @@ ListView.builder(
 )
 ```
 
-#### 3️⃣ ListView.separated()
-Adds dividers between list items.
-
-```dart
-ListView.separated(
-  itemCount: 5,
-  separatorBuilder: (context, index) => Divider(),
-  itemBuilder: (context, index) {
-    return ListTile(title: Text('Item \$index'));
-  },
-)
-```
-
-#### 4️⃣ ListView.custom()
-Allows for a completely customizable list layout.
-
-```dart
-ListView.custom(
-  childrenDelegate: SliverChildBuilderDelegate(
-    (context, index) => ListTile(title: Text('Custom Item \$index')),
-    childCount: 5,
-  ),
-)
-```
-
----
-
-## 🔲 GridView Widget
-The `GridView` widget arranges items in a grid pattern.
-
-### 🔹 Types of GridView:
-
-#### 1️⃣ GridView.count()
-Creates a grid with a fixed number of columns.
+### GridView Types
 
 ```dart
 GridView.count(
@@ -83,24 +118,6 @@ GridView.count(
   ],
 )
 ```
-
-#### 2️⃣ GridView.extent()
-Creates a grid where each item has a maximum cross-axis extent.
-
-```dart
-GridView.extent(
-  maxCrossAxisExtent: 100,
-  children: [
-    Container(color: Colors.purple),
-    Container(color: Colors.orange),
-    Container(color: Colors.pink),
-    Container(color: Colors.cyan),
-  ],
-)
-```
-
-#### 3️⃣ GridView.builder()
-Creates grid items dynamically as they scroll into view.
 
 ```dart
 GridView.builder(
@@ -116,27 +133,72 @@ GridView.builder(
 )
 ```
 
-#### 4️⃣ GridView.custom()
-Allows for a completely customizable grid layout.
+---
+
+## 🔘 ElevatedButton, OutlinedButton, and TextButton
+These buttons allow users to interact with the app.
 
 ```dart
-GridView.custom(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 3,
-  ),
-  childrenDelegate: SliverChildBuilderDelegate(
-    (context, index) => Container(color: Colors.grey),
-    childCount: 6,
-  ),
+ElevatedButton(
+  onPressed: () {},
+  child: Text('Click Me'),
+)
+```
+
+```dart
+OutlinedButton(
+  onPressed: () {},
+  child: Text('Outlined Button'),
+)
+```
+
+```dart
+TextButton(
+  onPressed: () {},
+  child: Text('Text Button'),
+)
+```
+
+---
+
+## 📅 DatePicker & TimePicker
+These widgets allow users to select a date or time.
+
+```dart
+showDatePicker(
+  context: context,
+  initialDate: DateTime.now(),
+  firstDate: DateTime(2000),
+  lastDate: DateTime(2101),
+);
+```
+
+```dart
+showTimePicker(
+  context: context,
+  initialTime: TimeOfDay.now(),
+);
+```
+
+---
+
+## 🏗️ Stepper Widget
+The `Stepper` widget allows users to navigate through a sequence of steps.
+
+```dart
+Stepper(
+  steps: [
+    Step(title: Text('Step 1'), content: Text('This is the first step')),
+    Step(title: Text('Step 2'), content: Text('This is the second step')),
+  ],
 )
 ```
 
 ---
 
 ## ✅ Summary
-- `ListView` has four types: `ListView()`, `ListView.builder()`, `ListView.separated()`, and `ListView.custom()`.
-- `GridView` has four types: `GridView.count()`, `GridView.extent()`, `GridView.builder()`, and `GridView.custom()`.
-- Using `builder()` versions helps improve performance in large lists and grids.
+- This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, `FloatingActionButton`, `DatePicker`, `TimePicker`, `Stepper`, `TabBar`, and `ProgressIndicator`.
+- Understanding these widgets will help in developing fully functional Flutter applications.
 
 ---
 
