@@ -16,12 +16,8 @@ Your task is to design the **Car Rent App UI** based on the provided Figma desig
 
 ## 🔥 Deliverables
 - **Fully functional Flutter UI matching the Figma design.**
-- **Screens should be responsive across all devices.**
+- **Screens should be responsive across all mobile devices.**
 - **Push the project to a GitHub repository for review.**
 
 ---
-
-## 📅 Deadline
-Please complete the UI development within **X days** and submit the GitHub repository link.
-
 🎨 **Happy Designing & Coding! 🚀**
