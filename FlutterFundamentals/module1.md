@@ -8,8 +8,6 @@ A widget tree defines how UI components are arranged and rendered on the screen.
 ---
 
 ## 🌳 Widget Tree Overview
-Just like an HTML document has a **DOM (Document Object Model)**, a Flutter application has a **Widget Tree** that represents the hierarchy of UI components. When a Flutter app runs, it constructs a tree of widgets and renders it on the screen.
-
 ### 🔹 Example Widget Tree
 
 Consider a simple Flutter app that displays a `Text` widget inside a `Column`, which itself is inside a `Scaffold`. The widget tree for this UI will look like this:
@@ -98,8 +96,5 @@ Flutter builds a new widget tree whenever the app state changes. This is why und
 - **Understanding the tree structure helps in building efficient apps**.
 
 ---
-
-## 🎯 Next Section: Stateless vs Stateful Widgets
-Stay tuned for the next topic, where we'll dive into **Stateless vs Stateful Widgets** and understand their differences!
 
 📚 Happy coding! 🚀
