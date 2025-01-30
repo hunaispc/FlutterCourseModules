@@ -222,6 +222,109 @@ Stack(
 ```
 
 ---
+# Basic UI Widgets in Flutter
+
+## 📌 Introduction
+Flutter provides a rich set of widgets to create beautiful UIs. These widgets form the building blocks of any Flutter application. In this section, we will explore fundamental UI widgets such as **Text, Image, Icon, Container, Row, Column, ListView, GridView, Stack, ElevatedButton, OutlinedButton, TextButton, TextField, Checkbox, Switch, Slider, Radio, DropdownButton, Card, AppBar, Scaffold, BottomNavigationBar, Drawer, FloatingActionButton, AlertDialog, Snackbar, ProgressIndicator, Chip, Divider, ExpansionTile, Tooltip, SizedBox, Padding, Align, Center, Visibility, Wrap, GestureDetector, ClipRRect, Stepper, TabBar, DatePicker, TimePicker**.
+
+Each of these widgets plays a crucial role in UI design, and understanding them will help you build interactive and visually appealing applications.
+
+---
+
+## 📏 SizedBox Widget
+The `SizedBox` widget is used to create a box with a specific height and width.
+
+```dart
+SizedBox(
+  width: 100,
+  height: 50,
+  child: ElevatedButton(
+    onPressed: () {},
+    child: Text('Click Me'),
+  ),
+)
+```
+
+---
+
+## 🔘 Different Button Widgets
+### ElevatedButton
+A material design button that elevates when pressed.
+
+```dart
+ElevatedButton(
+  onPressed: () {},
+  child: Text('Elevated Button'),
+)
+```
+
+### OutlinedButton
+A button with an outlined border.
+
+```dart
+OutlinedButton(
+  onPressed: () {},
+  child: Text('Outlined Button'),
+)
+```
+
+### TextButton
+A button with no elevation or border, used for text-based actions.
+
+```dart
+TextButton(
+  onPressed: () {},
+  child: Text('Text Button'),
+)
+```
+
+### FloatingActionButton
+A circular button used for primary actions.
+
+```dart
+FloatingActionButton(
+  onPressed: () {},
+  child: Icon(Icons.add),
+)
+```
+
+---
+
+## 📢 Dialog Box (AlertDialog)
+The `AlertDialog` widget is used to display pop-up messages.
+
+```dart
+showDialog(
+  context: context,
+  builder: (context) => AlertDialog(
+    title: Text('Alert'),
+    content: Text('This is an alert dialog'),
+    actions: [
+      TextButton(
+        onPressed: () {},
+        child: Text('OK'),
+      ),
+    ],
+  ),
+);
+```
+
+---
+
+## 🍞 Snackbar Widget
+The `Snackbar` widget is used to show temporary pop-up messages at the bottom of the screen.
+
+```dart
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text('This is a Snackbar!'),
+    duration: Duration(seconds: 2),
+  ),
+);
+```
+
+---
+
 ## ✅ Summary
 - This section includes essential widgets like `Text`, `Image`, `Icon`, `Container`, `ListView`, `GridView`, `Scaffold`, `AppBar`, `BottomNavigationBar`, `Drawer`, `FloatingActionButton`, `DatePicker`, `TimePicker`, `Stepper`, `TabBar`, and `ProgressIndicator`.
 - Understanding these widgets will help in developing fully functional Flutter applications.
