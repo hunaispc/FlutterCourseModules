@@ -113,18 +113,19 @@ Row(
 ## 📋 ListView Widget
 The `ListView` widget is a scrollable list of widgets.
 
-### 🔹 Important Parameters:
-- `children`: Holds list items.
-- `scrollDirection`: Defines horizontal or vertical scrolling.
-- `shrinkWrap`: Adjusts size to fit content.
+### 🔹 Types of ListView:
+1. **ListView()** - Default constructor for a simple list.
+2. **ListView.builder()** - Uses lazy loading for efficient performance.
+3. **ListView.separated()** - Adds separators between list items.
+4. **ListView.custom()** - Allows custom implementations.
 
 ### 🔹 Example:
 ```dart
-ListView(
-  children: [
-    ListTile(title: Text('Item 1')),
-    ListTile(title: Text('Item 2')),
-  ],
+ListView.builder(
+  itemCount: 5,
+  itemBuilder: (context, index) {
+    return ListTile(title: Text('Item \$index'));
+  },
 )
 ```
 
@@ -133,84 +134,25 @@ ListView(
 ## 🔲 GridView Widget
 The `GridView` widget arranges items in a grid pattern.
 
-### 🔹 Important Parameters:
-- `crossAxisCount`: Defines number of columns.
-- `children`: Holds grid items.
-- `mainAxisSpacing` & `crossAxisSpacing`: Defines spacing.
+### 🔹 Types of GridView:
+1. **GridView.count()** - Creates a grid with a fixed number of columns.
+2. **GridView.extent()** - Defines grid size using a max extent.
+3. **GridView.builder()** - Uses lazy loading for better performance.
+4. **GridView.custom()** - Allows customized grid structures.
 
 ### 🔹 Example:
 ```dart
-GridView.count(
-  crossAxisCount: 2,
-  children: [
-    Container(color: Colors.red),
-    Container(color: Colors.blue),
-  ],
+GridView.builder(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+    crossAxisSpacing: 10,
+    mainAxisSpacing: 10,
+  ),
+  itemCount: 4,
+  itemBuilder: (context, index) {
+    return Container(color: Colors.blue);
+  },
 )
-```
-
----
-
-## 🏗️ Stack Widget
-The `Stack` widget places widgets on top of each other.
-
-### 🔹 Important Parameters:
-- `alignment`: Positions child widgets.
-- `children`: Holds stacked widgets.
-
-### 🔹 Example:
-```dart
-Stack(
-  children: [
-    Container(width: 100, height: 100, color: Colors.green),
-    Positioned(bottom: 10, right: 10, child: Icon(Icons.star, color: Colors.white)),
-  ],
-)
-```
-
----
-
-## 🔘 ElevatedButton Widget
-The `ElevatedButton` is a material design button.
-
-### 🔹 Important Parameters:
-- `onPressed`: Callback function when pressed.
-- `child`: Defines the button’s content.
-
-### 🔹 Example:
-```dart
-ElevatedButton(
-  onPressed: () {},
-  child: Text('Click Me'),
-)
-```
-
----
-
-## ✅ Checkbox Widget
-The `Checkbox` widget allows users to select an option.
-
-### 🔹 Important Parameters:
-- `value`: Holds true/false state.
-- `onChanged`: Callback when value changes.
-
-### 🔹 Example:
-```dart
-Checkbox(value: true, onChanged: (newValue) {})
-```
-
----
-
-## 🔄 Switch Widget
-The `Switch` widget is used to toggle between ON and OFF states.
-
-### 🔹 Important Parameters:
-- `value`: Boolean state.
-- `onChanged`: Callback function.
-
-### 🔹 Example:
-```dart
-Switch(value: true, onChanged: (newValue) {})
 ```
 
 ---
@@ -219,7 +161,7 @@ Switch(value: true, onChanged: (newValue) {})
 - `Text`, `Image`, and `Icon` are used to display content.
 - `Container` is a flexible layout container.
 - `Row` and `Column` help in arranging widgets.
-- `ListView` and `GridView` are used for lists and grids.
+- `ListView` and `GridView` are used for lists and grids with multiple types.
 - `Stack` allows overlaying widgets.
 - `ElevatedButton`, `TextField`, `Checkbox`, and `Switch` add interactivity.
 
