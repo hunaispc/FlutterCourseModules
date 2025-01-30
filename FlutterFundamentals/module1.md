@@ -26,12 +26,6 @@ Scaffold
 This tree represents the structure of the app and how widgets are nested inside each other.
 
 ---
-
-## 🖼️ Visual Representation
-Here's an illustration of how widgets are structured in a Flutter Widget Tree:
-
-![Widget Tree Visualization](https://raw.githubusercontent.com/flutter/assets-for-api-docs/main/assets/widgets/widget_tree.png)
-
 In this diagram:
 - The **Scaffold** serves as the root widget.
 - The **AppBar** and **Column** are direct children of the Scaffold.
