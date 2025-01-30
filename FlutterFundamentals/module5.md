@@ -1,6 +1,6 @@
 # 📌 Responsive UI Design in Flutter
 
-## 🚀 Introduction
+## Introduction
 
 Building a **responsive UI** in Flutter ensures that your app adapts to different screen sizes, such as **mobile, tablets, and web**. Flutter provides various techniques to achieve responsiveness, making your app work smoothly across all devices.
 
