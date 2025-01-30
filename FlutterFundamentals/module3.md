@@ -7,181 +7,137 @@ Each of these widgets plays a crucial role in UI design, and understanding them 
 
 ---
 
-## 📝 Text Widget
-The `Text` widget is used to display simple text on the screen.
+## 📋 ListView Widget
+The `ListView` widget is a scrollable list of widgets.
+
+### 🔹 Types of ListView:
+
+#### 1️⃣ ListView()
+A simple list that displays all its children at once.
 
 ```dart
-Text(
-  'Hello, Flutter!',
-  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-  textAlign: TextAlign.center,
-)
-```
-
----
-
-## 🖼️ Image Widget
-The `Image` widget allows displaying images from assets or network.
-
-```dart
-Image.network(
-  'https://flutter.dev/images/flutter-logo-sharing.png',
-  width: 100,
-  height: 100,
-)
-```
-
----
-
-## 🔘 Icon Widget
-The `Icon` widget is used to display icons.
-
-```dart
-Icon(
-  Icons.favorite,
-  color: Colors.red,
-  size: 50,
-)
-```
-
----
-
-## 📦 Container Widget
-The `Container` widget is used for styling and layout.
-
-```dart
-Container(
-  width: 100,
-  height: 100,
-  color: Colors.blue,
-  padding: EdgeInsets.all(10),
-)
-```
-
----
-
-## 📏 Row & Column Widgets
-These widgets arrange elements horizontally and vertically.
-
-```dart
-Column(
+ListView(
   children: [
-    Text('First Item'),
-    Text('Second Item'),
+    ListTile(title: Text('Item 1')),
+    ListTile(title: Text('Item 2')),
+    ListTile(title: Text('Item 3')),
   ],
 )
 ```
 
+#### 2️⃣ ListView.builder()
+Creates list items lazily as they scroll into view, optimizing performance.
+
 ```dart
-Row(
-  children: [
-    Icon(Icons.star, color: Colors.yellow),
-    Text('Flutter'),
-  ],
+ListView.builder(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return ListTile(title: Text('Item \$index'));
+  },
 )
 ```
 
----
-
-## 🔘 ElevatedButton, OutlinedButton, and TextButton
-These buttons allow users to interact with the app.
+#### 3️⃣ ListView.separated()
+Adds dividers between list items.
 
 ```dart
-ElevatedButton(
-  onPressed: () {},
-  child: Text('Click Me'),
+ListView.separated(
+  itemCount: 5,
+  separatorBuilder: (context, index) => Divider(),
+  itemBuilder: (context, index) {
+    return ListTile(title: Text('Item \$index'));
+  },
 )
 ```
 
-```dart
-OutlinedButton(
-  onPressed: () {},
-  child: Text('Outlined Button'),
-)
-```
+#### 4️⃣ ListView.custom()
+Allows for a completely customizable list layout.
 
 ```dart
-TextButton(
-  onPressed: () {},
-  child: Text('Text Button'),
-)
-```
-
----
-
-## 🏗️ Stack Widget
-The `Stack` widget overlays widgets on top of each other.
-
-```dart
-Stack(
-  children: [
-    Container(width: 100, height: 100, color: Colors.blue),
-    Positioned(bottom: 10, right: 10, child: Icon(Icons.star, color: Colors.white)),
-  ],
-)
-```
-
----
-
-## 📌 AlertDialog & Snackbar
-The `AlertDialog` and `Snackbar` widgets show messages to users.
-
-```dart
-showDialog(
-  context: context,
-  builder: (context) => AlertDialog(
-    title: Text('Alert'),
-    content: Text('This is an alert dialog'),
-    actions: [TextButton(onPressed: () {}, child: Text('OK'))],
+ListView.custom(
+  childrenDelegate: SliverChildBuilderDelegate(
+    (context, index) => ListTile(title: Text('Custom Item \$index')),
+    childCount: 5,
   ),
-);
-```
-
-```dart
-ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(content: Text('This is a Snackbar')),
-);
-```
-
----
-
-## 🔄 ProgressIndicator
-The `CircularProgressIndicator` and `LinearProgressIndicator` show loading states.
-
-```dart
-CircularProgressIndicator()
-```
-
-```dart
-LinearProgressIndicator()
-```
-
----
-
-## 🎭 Visibility & Wrap Widget
-These widgets control widget appearance and layout wrapping.
-
-```dart
-Visibility(
-  visible: true,
-  child: Text('Visible Text'),
 )
 ```
 
+---
+
+## 🔲 GridView Widget
+The `GridView` widget arranges items in a grid pattern.
+
+### 🔹 Types of GridView:
+
+#### 1️⃣ GridView.count()
+Creates a grid with a fixed number of columns.
+
 ```dart
-Wrap(
+GridView.count(
+  crossAxisCount: 2,
   children: [
-    Chip(label: Text('Chip 1')),
-    Chip(label: Text('Chip 2')),
+    Container(color: Colors.red),
+    Container(color: Colors.blue),
+    Container(color: Colors.green),
+    Container(color: Colors.yellow),
   ],
+)
+```
+
+#### 2️⃣ GridView.extent()
+Creates a grid where each item has a maximum cross-axis extent.
+
+```dart
+GridView.extent(
+  maxCrossAxisExtent: 100,
+  children: [
+    Container(color: Colors.purple),
+    Container(color: Colors.orange),
+    Container(color: Colors.pink),
+    Container(color: Colors.cyan),
+  ],
+)
+```
+
+#### 3️⃣ GridView.builder()
+Creates grid items dynamically as they scroll into view.
+
+```dart
+GridView.builder(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+    crossAxisSpacing: 10,
+    mainAxisSpacing: 10,
+  ),
+  itemCount: 6,
+  itemBuilder: (context, index) {
+    return Container(color: Colors.blue);
+  },
+)
+```
+
+#### 4️⃣ GridView.custom()
+Allows for a completely customizable grid layout.
+
+```dart
+GridView.custom(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 3,
+  ),
+  childrenDelegate: SliverChildBuilderDelegate(
+    (context, index) => Container(color: Colors.grey),
+    childCount: 6,
+  ),
 )
 ```
 
 ---
 
 ## ✅ Summary
-- This section includes additional widgets like `AlertDialog`, `Snackbar`, `ProgressIndicator`, `Chip`, `Divider`, `ExpansionTile`, `Tooltip`, `SizedBox`, `Padding`, `Align`, `Center`, `Wrap`, `GestureDetector`, and `ClipRRect`.
-- These widgets help in enhancing UI interactivity, styling, and responsiveness.
+- `ListView` has four types: `ListView()`, `ListView.builder()`, `ListView.separated()`, and `ListView.custom()`.
+- `GridView` has four types: `GridView.count()`, `GridView.extent()`, `GridView.builder()`, and `GridView.custom()`.
+- Using `builder()` versions helps improve performance in large lists and grids.
 
 ---
+
 📚 Happy coding! 🚀
