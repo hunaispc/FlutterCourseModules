@@ -161,14 +161,8 @@ import '../models/anime_model.dart';
 abstract class AnimeState {}
 class AnimeblocInitial extends AnimeState {}
 class AnimeblocLoading extends AnimeState {}
-class AnimeblocLoaded extends AnimeState {
-  final AnimeModel animeModel;
-  AnimeblocLoaded(this.animeModel);
-}
-class AnimeblocError extends AnimeState {
-  final String error;
-  AnimeblocError(this.error);
-}
+class AnimeblocLoaded extends AnimeState {}
+class AnimeblocError extends AnimeState {}
 ```
 
 Create `bloc/anime_bloc.dart`:
@@ -185,9 +179,9 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
       emit(AnimeblocLoading());
       try {
         final animeModel = await animeRepository.getAnime();
-        emit(AnimeblocLoaded(animeModel));
+        emit(AnimeblocLoaded());
       } catch (e) {
-        emit(AnimeblocError(e.toString()));
+        emit(AnimeblocError());
       }
     });
   }
