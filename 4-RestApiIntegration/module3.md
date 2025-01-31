@@ -310,9 +310,8 @@ class LoginScreen extends StatelessWidget {
               },
               child: ElevatedButton(
                 onPressed: () {
-                  final email = emailController.text;
-                  final password = passwordController.text;
-                  context.read<AuthBloc>().add(SignInEvent(email: email, password: password));
+
+                  BlocProvider.of<AnimeBloc>(context).add(SignInEvent(email: emailController.text, password: passwordController.text));
                 },
                 child: Text("Login"),
               ),
