@@ -257,7 +257,7 @@ class CounterScreen extends StatelessWidget {
     );
   }
 }
-
+```
 ## **Understanding BlocBuilder and BlocListener**
 
 ### **BlocBuilder**
