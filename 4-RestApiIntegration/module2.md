@@ -290,7 +290,7 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
 ```dart
 void main() {
   runApp(BlocProvider(
-    create: (context) => AnimeBloc(animeRepository: AnimeRepository()),
+    create: (context) => AnimeBloc(),
     child: MaterialApp(home: HomeScreen()),
   ));
 }
