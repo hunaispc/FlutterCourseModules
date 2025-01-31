@@ -68,8 +68,3 @@ Your task is to build a **Feedback Feature** using Flutter and BLoC that support
 - Use **debouncing** for handling user input efficiently.
 - Ensure **error handling** and **loading indicators** are correctly displayed.
 
-## Bonus
-How would you implement **pagination** if there were a large number of feedback entries?
-
----
-This README serves as a guide to structuring your **BLoC-based API integration project** in Flutter.
