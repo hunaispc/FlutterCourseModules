@@ -306,6 +306,11 @@ import '../bloc/anime_state.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
+  void initState() {
+    BlocProvider.of<AnimeBloc>(context).add(FetchAnimeEvent());
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Anime List")),
