@@ -6,14 +6,14 @@ This guide provides a step-by-step tutorial on integrating an API using **Flutte
 
 ## 🚀 About Rapid API  
 
-[Rapid API](https://rapidapi.com/) is the **world’s largest API marketplace**, enabling developers to **discover, connect, and manage** thousands of APIs in a single platform. It offers a **secure** integration process, multiple **pricing plans**, and simplified authentication using a **single API key**.  
+[Rapid API](https://rapidapi.com/hub) is the **world’s largest API marketplace**, enabling developers to **discover, connect, and manage** thousands of APIs in a single platform. It offers a **secure** integration process, multiple **pricing plans**, and simplified authentication using a **single API key**.  
 
 With **Rapid API**, developers can:  
 - Explore and test APIs directly on the platform  
 - Monitor API usage with built-in **analytics**  
 - Access a variety of APIs for different use cases  
 
-For this guide, we will use the **[Anime Database API](https://rapidapi.com/deva73/api/anime-db/)** from **Rapid API** to fetch anime details.  
+For this guide, we will use the **[Anime Database API](https://rapidapi.com/brian.rofiq/api/anime-db/playground/apiendpoint_d5c3dae2-6017-48df-a7cd-be65865d15bc)** from **Rapid API** to fetch anime details.  
 
 ---
 
