@@ -207,16 +207,6 @@ class RiveScreen extends StatelessWidget {
 }
 ```
 
----
-
-## Full Example Code
-
-This full implementation showcases all the above features in a single app.
-
-[GitHub Repository](https://github.com/your-repo/flutter-animations)
-
----
-
 ## Conclusion
 
 This study module provides a beginner-friendly approach to understanding and integrating advanced UI animations in Flutter. Keep experimenting and enhancing your animations!
