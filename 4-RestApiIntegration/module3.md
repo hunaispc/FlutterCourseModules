@@ -44,32 +44,126 @@ flutter pub get
 
 ---
 
-## 3️⃣ **Create API Client**
+## **3. Create API Client Class**
 Create `repositories/api_client.dart`:
 ```dart
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'dart:developer';
+import 'package:http/http.dart';
+
+import 'api_exception.dart';
 
 class ApiClient {
-  Future<http.Response> postRequest(String url, Map<String, dynamic> body) async {
-    final headers = {
-      'Content-Type': 'application/json',
-    };
+  Future<Response> invokeAPI(String path, String method, Object? body) async {
+    Map<String, String> headerParams = {};
+    Response response;
 
-    final response = await http.post(
-      Uri.parse(url),
-      headers: headers,
-      body: jsonEncode(body),
-    );
+    String url = path;
+    print(url);
 
-    if (response.statusCode >= 400) {
-      throw Exception("API Error: ${response.body}");
+    final nullableHeaderParams = (headerParams.isEmpty) ? null : headerParams;
+    print(body);
+    switch (method) {
+      case "POST":
+        response = await post(Uri.parse(url),
+            headers: {
+              'content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: body);
+
+        break;
+      case "PUT":
+        response = await put(Uri.parse(url),
+            headers: {
+              'content-Type': 'application/json',
+            },
+            body: body);
+        break;
+      case "DELETE":
+        response = await delete(Uri.parse(url), headers: {}, body: body);
+        break;
+      case "POST_":
+        response = await post(
+          Uri.parse(url),
+          headers: {'content-Type': 'application/json'},
+          body: body,
+        );
+        break;
+      case "GET_":
+        response = await post(
+          Uri.parse(url),
+          headers: {},
+          body: body,
+        );
+        break;
+      case "GET":
+        response = await get(
+          Uri.parse(url),
+          headers: {
+           'X-RapidAPI-Key': 'YOUR_API_KEY',
+            'X-RapidAPI-Host': 'anime-db.p.rapidapi.com',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        );
+
+        break;
+      case "PATCH":
+        response = await patch(
+          Uri.parse(url),
+          headers: {'Content-Type': 'application/json'},
+          body: body,
+        );
+        break;
+      case "PATCH1":
+        response = await patch(
+          Uri.parse(url),
+          headers: {},
+          body: body,
+        );
+        break;
+      default:
+        response = await get(Uri.parse(url), headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        });
     }
-    
+
+    print('status of $path =>' + (response.statusCode).toString());
+    print(response.body);
+    if (response.statusCode >= 400) {
+      log(path +
+          ' : ' +
+          response.statusCode.toString() +
+          ' : ' +
+          response.body);
+
+      throw ApiException(_decodeBodyBytes(response), response.statusCode);
+    }
     return response;
+  }
+
+  String _decodeBodyBytes(Response response) {
+    var contentType = response.headers['content-type'];
+    if (contentType != null && contentType.contains("application/json")) {
+      return jsonDecode(response.body)['message'];
+    } else {
+      return response.body;
+    }
   }
 }
 ```
+
+## **4. Create API Exception Class**
+Create `repositories/api_exception.dart`:
+```dart
+class ApiException implements Exception {
+  final String message;
+  final int statusCode;
+  ApiException(this.message, this.statusCode);
+}
+```
+
 
 ---
 
