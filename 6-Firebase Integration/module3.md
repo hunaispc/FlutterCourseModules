@@ -151,7 +151,7 @@ class MyApp extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  databaseRef.child("users").child("age").update({
+                  databaseRef.child("users").child("docId").update({
                     'age': 30
                   });
                 },
@@ -159,7 +159,7 @@ class MyApp extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  databaseRef.child("users").child("name").remove();
+                  databaseRef.child("users").child("docId").remove();
                 },
                 child: Text("Delete Data"),
               ),
