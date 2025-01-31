@@ -233,9 +233,10 @@ import 'api_client.dart';
 
 class AnimeRepository {
   ApiClient apiClient = ApiClient();
+    var body = {};
   Future<AnimeModel> getAnime() async {
     String url = 'https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=Fullmetal&genres=Fantasy,Drama&sortBy=ranking&sortOrder=asc';
-    Response response = await apiClient.invokeAPI(url, 'GET');
+    Response response = await apiClient.invokeAPI(url, 'GET',body);
     return AnimeModel.fromJson(jsonDecode(response.body));
   }
 }
