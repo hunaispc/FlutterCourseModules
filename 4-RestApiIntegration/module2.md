@@ -3,7 +3,7 @@
 This guide provides a step-by-step tutorial on integrating an API using **Flutter BLoC** for state management. It uses **Rapid API** for fetching data, **Postman** for testing API responses, and **JSON to Dart** for creating models.
 
 ---
-About Rapid API
+# About Rapid API
 
 Rapid API is the world’s largest API marketplace that enables developers to discover, connect, and manage thousands of APIs in one platform. It provides a secure way to integrate APIs, offers various pricing plans, and simplifies authentication with a single API key. Developers can browse different APIs, test them directly on the platform, and access analytics for monitoring API usage.
 ---
