@@ -120,51 +120,90 @@ void main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  final databaseRef = FirebaseDatabase.instance.ref();
+final databaseRef = FirebaseDatabase.instance.ref();
 
+void addData() {
+  databaseRef.child("users").push().set({
+    'name': 'John Doe',
+    'age': 25
+  });
+}
+
+void deleteData(String key) {
+  databaseRef.child("users").child(key).remove();
+}
+
+void updateData(String key) {
+  databaseRef.child("users").child(key).update({
+    'age': 26
+  });
+}
+
+void getData() {
+  databaseRef.child("users").onValue.listen((event) {
+    print(event.snapshot.value);
+  });
+}
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Firebase Realtime Database")),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  databaseRef.child("users").push().set({
-                    'name': 'John Doe',
-                    'age': 25
+        body: Column(
+          children: [
+            Expanded(
+              child: StreamBuilder(
+                stream: databaseRef.child("users").onValue,
+                builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
+                  if (!snapshot.hasData || snapshot.data!.snapshot.value == null) {
+                    return Center(child: Text("No Data Available"));
+                  }
+                  
+                  // Retrieving data from Firebase and converting it to a map
+                  Map<dynamic, dynamic> data = 
+                      snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
+                  List<Map<String, dynamic>> items = [];
+                  
+                  // Iterating through the map and converting it into a list of maps
+                  data.forEach((key, value) {
+                    items.add({"key": key, ...value}); // Adding the key and its values to the list
                   });
+                  
+                  return ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(items[index]['name']),
+                        subtitle: Text("Age: \${items[index]['age']}"),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.edit),
+                              onPressed: () => updateData(items[index]['key']),
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.delete),
+                              onPressed: () => deleteData(items[index]['key']),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
                 },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: addData,
                 child: Text("Add Data"),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  databaseRef.child("users").onValue.listen((event) {
-                    print(event.snapshot.value);
-                  });
-                },
-                child: Text("Read Data"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  databaseRef.child("users").child("docId").update({
-                    'age': 30
-                  });
-                },
-                child: Text("Update Data"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  databaseRef.child("users").child("docId").remove();
-                },
-                child: Text("Delete Data"),
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
