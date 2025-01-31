@@ -125,60 +125,82 @@ void main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  final firestore = FirebaseFirestore.instance;
+final CollectionReference usersCollection = FirebaseFirestore.instance.collection('users');
 
+void addData() {
+  usersCollection.add({
+    'name': 'John Doe',
+    'age': 25
+  });
+}
+
+void deleteData(String docId) {
+  usersCollection.doc(docId).delete();
+}
+
+void updateData(String docId) {
+  usersCollection.doc(docId).update({
+    'age': 26
+  });
+}
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Firebase Firestore")),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  firestore.collection("users").add({
-                    'name': 'John Doe',
-                    'age': 25
-                  });
+        appBar: AppBar(title: Text("Firebase Firestore Database")),
+        body: Column(
+          children: [
+            Expanded(
+              child: StreamBuilder(
+                stream: usersCollection.snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: Text("No Data Available"));
+                  }
+                  
+                  List<QueryDocumentSnapshot> items = snapshot.data!.docs;
+                  
+                  return ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(items[index]['name']),
+                        subtitle: Text("Age: \${items[index]['age']}"),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.edit),
+                              onPressed: () => updateData(items[index].id),
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.delete),
+                              onPressed: () => deleteData(items[index].id),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
                 },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: addData,
                 child: Text("Add Data"),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  firestore.collection("users").snapshots().listen((snapshot) {
-                    for (var doc in snapshot.docs) {
-                      print(doc.data());
-                    }
-                  });
-                },
-                child: Text("Read Data"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Replace with actual document ID
-                  firestore.collection("users").doc("docId").update({
-                    'age': 30
-                  });
-                },
-                child: Text("Update Data"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Replace with actual document ID
-                  firestore.collection("users").doc("docId").delete();
-                },
-                child: Text("Delete Data"),
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
   }
 }
+
 ```
 
 This guide provides a complete setup for integrating Firebase Firestore in Flutter, allowing you to perform CRUD operations efficiently.
