@@ -3,16 +3,20 @@
 This guide provides a step-by-step tutorial on integrating an API using **Flutter BLoC** for state management. It uses **Rapid API** for fetching data, **Postman** for testing API responses, and **JSON to Dart** for creating models.
 
 ---
-🚀# About Rapid API
-Rapid API is the world’s largest API marketplace, enabling developers to discover, connect, and manage thousands of APIs in a single platform. It offers a secure integration process, multiple pricing plans, and simplified authentication using a single API key.
 
-With Rapid API, developers can:
+## 🚀 About Rapid API  
 
-Explore and test APIs directly on the platform
-Monitor API usage with built-in analytics
-Access a variety of APIs for different use cases
+[Rapid API](https://rapidapi.com/) is the **world’s largest API marketplace**, enabling developers to **discover, connect, and manage** thousands of APIs in a single platform. It offers a **secure** integration process, multiple **pricing plans**, and simplified authentication using a **single API key**.  
 
-For this guide, we will use the Anime Database API from Rapid API to fetch anime details.
+With **Rapid API**, developers can:  
+- Explore and test APIs directly on the platform  
+- Monitor API usage with built-in **analytics**  
+- Access a variety of APIs for different use cases  
+
+For this guide, we will use the **[Anime Database API](https://rapidapi.com/deva73/api/anime-db/)** from **Rapid API** to fetch anime details.  
+
+---
+
 ## **Project Setup**
 
 ### 1. **Create a New Flutter Project**
@@ -127,6 +131,7 @@ class ApiClient {
   }
 }
 ```
+
 ## **4. Create API Exception Class**
 Create `repositories/api_exception.dart`:
 ```dart
@@ -136,7 +141,8 @@ class ApiException implements Exception {
   ApiException(this.message, this.statusCode);
 }
 ```
-## **4. Create API Class**
+
+## **5. Create API Class**
 Create `repositories/anime_repository.dart`:
 ```dart
 import 'dart:convert';
@@ -156,7 +162,7 @@ class AnimeRepository {
 
 ---
 
-## **5. Create BLoC for State Management**
+## **6. Create BLoC for State Management**
 
 Create `bloc/anime_event.dart`:
 ```dart
@@ -198,10 +204,8 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
 ```
 
 ---
----
 
-## **6. Initialize the bloc in main**
-Update `main.dart`:
+## **7. Initialize the BLoC in main.dart**
 ```dart
 void main() {
   runApp(BlocProvider(
