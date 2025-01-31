@@ -63,7 +63,7 @@ Headers:
 ```
 
 ### **2. Convert JSON to Dart Model**
-Use [json-to-dart]([https://app.quicktype.io/](https://jsontodart.zariman.dev/)) to generate the model. Create `models/anime_model.dart`:
+Use [json-to-dart]([https://app.quicktype.io/](https://jsontodart.zariman.dev/) to generate the model. Create `models/anime_model.dart`:
 ```dart
 class AnimeModel {
   List<Data>? data;
