@@ -67,7 +67,7 @@ class ApiClient {
       case "POST":
         response = await post(Uri.parse(url),
             headers: {
-              'content-Type': 'application/x-www-form-urlencoded',
+              'content-Type': 'application/json',
             },
             body: body);
 
@@ -184,7 +184,7 @@ class AuthRepository {
       "email": email,
       "password": password,
     };
-    Response response = await apiClient.invokeAPI(url,body);
+    Response response = await apiClient.invokeAPI(url,"POST",body);
 
     return AuthModel.fromJson(jsonDecode(response.body));
   }
