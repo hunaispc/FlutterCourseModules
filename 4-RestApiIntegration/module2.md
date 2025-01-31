@@ -90,7 +90,7 @@ class Data {
 
 ---
 
-## **API Client Class**
+## **3. Create API Client Class**
 Create `repositories/api_client.dart`:
 ```dart
 import 'dart:convert';
@@ -118,7 +118,7 @@ class ApiClient {
   }
 }
 ```
-
+## **4. Create API Exception Class**
 Create `repositories/api_exception.dart`:
 ```dart
 class ApiException implements Exception {
@@ -127,7 +127,7 @@ class ApiException implements Exception {
   ApiException(this.message, this.statusCode);
 }
 ```
-
+## **4. Create API Class**
 Create `repositories/anime_repository.dart`:
 ```dart
 import 'dart:convert';
@@ -147,7 +147,7 @@ class AnimeRepository {
 
 ---
 
-## **BLoC for State Management**
+## **5. Create BLoC for State Management**
 
 Create `bloc/anime_event.dart`:
 ```dart
@@ -195,8 +195,19 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
 ```
 
 ---
+---
 
-## **Integrate BLoC in UI**
+## **6. Initialize the bloc in main**
+Update `main.dart`:
+```dart
+void main() {
+  runApp(BlocProvider(
+    create: (context) => AnimeBloc(animeRepository: AnimeRepository()),
+    child: MaterialApp(home: HomeScreen()),
+  ));
+}
+```
+## **7. Integrate BLoC in UI**
 Create `screens/home_screen.dart`:
 ```dart
 import 'package:flutter/material.dart';
@@ -235,19 +246,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
-```
-
----
-
-## **Run the App**
-Update `main.dart`:
-```dart
-void main() {
-  runApp(BlocProvider(
-    create: (context) => AnimeBloc(animeRepository: AnimeRepository()),
-    child: MaterialApp(home: HomeScreen()),
-  ));
 }
 ```
 Run:
