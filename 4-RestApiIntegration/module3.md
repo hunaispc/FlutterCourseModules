@@ -252,8 +252,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 ```
 
 ---
-
-## 7️⃣ **Use BLoC Listener in UI**
+## **7. Initialize the BLoC in main.dart**
+```dart
+void main() {
+  runApp(BlocProvider(
+    create: (context) => AuthBloc(),
+    child: MaterialApp(home: HomeScreen()),
+  ));
+}
+```
+## 8 **Use BLoC Listener in UI**
 Create `screens/login_screen.dart`:
 ```dart
 import 'package:flutter/material.dart';
