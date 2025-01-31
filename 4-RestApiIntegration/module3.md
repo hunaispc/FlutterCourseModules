@@ -219,15 +219,9 @@ class AuthInitial extends AuthState {}
 
 class AuthLoading extends AuthState {}
 
-class AuthSuccess extends AuthState {
-  final AuthModel authModel;
-  AuthSuccess(this.authModel);
-}
+class AuthSuccess extends AuthState {}
 
-class AuthFailure extends AuthState {
-  final String error;
-  AuthFailure(this.error);
-}
+class AuthFailure extends AuthState {}
 ```
 
 ---
@@ -242,15 +236,15 @@ import 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
-
+ final AuthModel authModel;
   AuthBloc({required this.authRepository}) : super(AuthInitial()) {
     on<SignInEvent>((event, emit) async {
       emit(AuthLoading());
       try {
-        final authModel = await authRepository.signIn(event.email, event.password);
-        emit(AuthSuccess(authModel));
+         authModel = await authRepository.signIn(event.email, event.password);
+        emit(AuthSuccess());
       } catch (e) {
-        emit(AuthFailure(e.toString()));
+        emit(AuthFailure());
       }
     });
   }
