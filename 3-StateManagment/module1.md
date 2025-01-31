@@ -258,6 +258,37 @@ class CounterScreen extends StatelessWidget {
   }
 }
 
+## **Understanding BlocBuilder and BlocListener**
+
+### **BlocBuilder**
+- `BlocBuilder` is used to rebuild the UI when the state changes.
+- It listens to state changes and updates the UI accordingly.
+
+#### **Example:**
+```dart
+BlocBuilder<CounterBloc, CounterState>(
+  builder: (context, state) {
+    return Text('Count: ${state.count}', style: TextStyle(fontSize: 24));
+  },
+)
+```
+
+### **BlocListener**
+- `BlocListener` is used when you want to execute side effects (e.g., showing a snackbar or navigation) based on state changes without rebuilding the UI.
+
+#### **Example:**
+```dart
+BlocListener<CounterBloc, CounterState>(
+  listener: (context, state) {
+    if (state.count == 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Reached 10!')),
+      );
+    }
+  },
+  child: CounterScreen(),
+)
+```
 ```
 ## ✅ Summary
 | Method | Use Case |
