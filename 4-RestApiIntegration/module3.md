@@ -182,7 +182,7 @@ class AuthRepository {
       "email": email,
       "password": password,
     };
-    Response response = await apiClient.invokeAPI(url,"POST",body);
+    Response response = await apiClient.invokeAPI(url,"POST",jsonEncode(body));
 
     return AuthModel.fromJson(jsonDecode(response.body));
   }
