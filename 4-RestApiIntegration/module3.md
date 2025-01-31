@@ -180,11 +180,11 @@ class AuthRepository {
 
   Future<AuthModel> signIn(String email, String password) async {
     String url = "http://45.159.221.50:9890/api/signin";
-    
-    Response response = await apiClient.postRequest(url, {
+        var body = {
       "email": email,
       "password": password,
-    });
+    };
+    Response response = await apiClient.invokeAPI(url,body);
 
     return AuthModel.fromJson(jsonDecode(response.body));
   }
