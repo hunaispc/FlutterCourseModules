@@ -15,8 +15,6 @@ Firebase is a backend-as-a-service (BaaS) provided by Google, allowing developer
 
 1. Go to [Firebase Console](https://console.firebase.google.com/).
 2. Click on "Add Project" and follow the instructions.
-3. Register the app (Android & iOS) and download the `google-services.json` (Android) or `GoogleService-Info.plist` (iOS).
-4. Add the downloaded file to the respective platform folders in your Flutter project.
 
 ## Step 2: Add Firebase to Your Flutter App
 
