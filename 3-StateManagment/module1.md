@@ -289,7 +289,7 @@ BlocListener<CounterBloc, CounterState>(
   child: CounterScreen(),
 )
 ```
-```
+
 ## ✅ Summary
 | Method | Use Case |
 |--------|---------|
