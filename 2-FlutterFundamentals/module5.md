@@ -228,11 +228,21 @@ class MobileLayout extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: Container(color: Colors.blue, child: Center(child: Text('Mobile View', style: TextStyle(fontSize: 18.sp)))),
+            child: Container(
+              width: double.infinity,
+              height: 200.h,
+              color: Colors.blue,
+              child: Center(child: Text('Mobile View', style: TextStyle(fontSize: 18.sp))),
+            ),
           ),
           SizedBox(height: 10.h),
           Expanded(
-            child: Container(color: Colors.green, child: Center(child: Text('Content', style: TextStyle(fontSize: 16.sp)))),
+            child: Container(
+              width: double.infinity,
+              height: 200.h,
+              color: Colors.green,
+              child: Center(child: Text('Content', style: TextStyle(fontSize: 16.sp))),
+            ),
           ),
         ],
       ),
@@ -246,11 +256,21 @@ class TabletLayout extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Container(color: Colors.blue, child: Center(child: Text('Tablet Sidebar', style: TextStyle(fontSize: 22.sp)))),
+          child: Container(
+            width: 150.w,
+            height: double.infinity,
+            color: Colors.blue,
+            child: Center(child: Text('Tablet Sidebar', style: TextStyle(fontSize: 22.sp))),
+          ),
         ),
         Expanded(
           flex: 2,
-          child: Container(color: Colors.green, child: Center(child: Text('Tablet Content', style: TextStyle(fontSize: 20.sp)))),
+          child: Container(
+            width: 250.w,
+            height: double.infinity,
+            color: Colors.green,
+            child: Center(child: Text('Tablet Content', style: TextStyle(fontSize: 20.sp))),
+          ),
         ),
       ],
     );
@@ -264,16 +284,27 @@ class WebLayout extends StatelessWidget {
       children: [
         Expanded(
           flex: 1,
-          child: Container(color: Colors.blue, child: Center(child: Text('Web Sidebar', style: TextStyle(fontSize: 24.sp)))),
+          child: Container(
+            width: 200.w,
+            height: double.infinity,
+            color: Colors.blue,
+            child: Center(child: Text('Web Sidebar', style: TextStyle(fontSize: 24.sp))),
+          ),
         ),
         Expanded(
           flex: 3,
-          child: Container(color: Colors.green, child: Center(child: Text('Web Content', style: TextStyle(fontSize: 22.sp)))),
+          child: Container(
+            width: 600.w,
+            height: double.infinity,
+            color: Colors.green,
+            child: Center(child: Text('Web Content', style: TextStyle(fontSize: 22.sp))),
+          ),
         ),
       ],
     );
   }
 }
+
 ```
 
 ### 📌 Explanation:
