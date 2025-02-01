@@ -75,9 +75,4 @@ A structured guide to mastering **Flutter** from scratch to expert level.
 
 ### 1️⃣4️⃣ **Deployment**
 - Build & Release APK
-### 1️⃣5️⃣ **Building Advanced Apps**
-- Payment Gateway Integration (Razorpay, Stripe)
-- AI & ML Integration (Google ML Kit, TensorFlow Lite)
-- WebSockets (Real-Time Chat Apps)
-- Implementing Background Services
 ---
