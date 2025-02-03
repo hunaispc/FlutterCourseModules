@@ -78,7 +78,7 @@ numbers.insert(3, 10);
 numbers.remove(2);
 numbers.removeAt(0);
 print(numbers.contains(4)); // Output: true
-print(numbers.reversed.toList()); // Output: [6, 5, 4, 10, 3]
+print(numbers.reversed.toList()); // Output: [5, 4, 3, 2, 1]
 ```
 
 ---
