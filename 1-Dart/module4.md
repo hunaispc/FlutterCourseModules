@@ -57,7 +57,7 @@ print(numbers[1]);  // Output: 20
      { "name": "John", "prices": [230, 100, 310, 320] }
    ];
    ```
-   - Print the prices and marks.
+   - Print the prices and numbers.
 
 ### **Nested Map Operations**
 6. Given the following List of Maps:
