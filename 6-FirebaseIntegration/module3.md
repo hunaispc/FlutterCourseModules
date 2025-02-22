@@ -122,23 +122,36 @@ void main() async {
 
 final databaseRef = FirebaseDatabase.instance.ref();
 
+// Function to add data to Firebase and store the auto-generated ID
 void addData() {
-  databaseRef.child("users").push().set({
+  DatabaseReference newRef = databaseRef.child("users").push(); // Creates a new reference with an auto-generated ID
+  String autoId = newRef.key ?? ''; // Retrieves the auto-generated ID, ensures it is not null
+
+  // Sets the data including the ID
+  newRef.set({
+    'id': autoId, // Uses the auto-generated ID as part of the data
     'name': 'John Doe',
     'age': 25
+  }).then((_) {
+    print("Data added with ID: $autoId");
+  }).catchError((error) {
+    print("Failed to add data: $error");
   });
 }
 
-void deleteData(String key) {
-  databaseRef.child("users").child(key).remove();
-}
-
+// Function to update data using key
 void updateData(String key) {
   databaseRef.child("users").child(key).update({
     'age': 26
   });
 }
 
+// Function to delete data using key
+void deleteData(String key) {
+  databaseRef.child("users").child(key).remove();
+}
+
+// Function to retrieve data and listen for changes
 void getData() {
   databaseRef.child("users").onValue.listen((event) {
     print(event.snapshot.value);
@@ -160,23 +173,20 @@ class MyApp extends StatelessWidget {
                   if (!snapshot.hasData || snapshot.data!.snapshot.value == null) {
                     return Center(child: Text("No Data Available"));
                   }
-                  
-                  // Retrieving data from Firebase and converting it to a map
-                  Map<dynamic, dynamic> data = 
-                      snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
+
+                  Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                   List<Map<String, dynamic>> items = [];
-                  
-                  // Iterating through the map and converting it into a list of maps
+
                   data.forEach((key, value) {
-                    items.add({"key": key, ...value}); // Adding the key and its values to the list
+                    items.add({"key": key, ...value});
                   });
-                  
+
                   return ListView.builder(
                     itemCount: items.length,
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text(items[index]['name']),
-                        subtitle: Text("Age: \${items[index]['age']}"),
+                        subtitle: Text("Age: ${items[index]['age']}"),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -209,4 +219,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 ```
