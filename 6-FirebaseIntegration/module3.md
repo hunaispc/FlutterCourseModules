@@ -76,11 +76,20 @@ import 'package:firebase_database/firebase_database.dart';
 final databaseRef = FirebaseDatabase.instance.ref();
 
 void addData() {
-  databaseRef.child("users").push().set({
+  DatabaseReference newRef = databaseRef.child("users").push(); // Creates a new reference with an auto-generated ID
+  String autoId = newRef.key ?? ''; // Retrieves the auto-generated ID, ensures it is not null
+
+  newRef.set({
+    'id': autoId, // Uses the auto-generated ID as part of the data
     'name': 'John Doe',
     'age': 25
+  }).then((_) {
+    print("Data added with ID: $autoId");
+  }).catchError((error) {
+    print("Failed to add data: $error");
   });
 }
+
 ```
 
 ### 2. Reading Data
@@ -90,6 +99,7 @@ void getData() {
     print(event.snapshot.value);
   });
 }
+
 ```
 
 ### 3. Updating Data
@@ -97,15 +107,25 @@ void getData() {
 void updateData(String key) {
   databaseRef.child("users").child(key).update({
     'age': 26
+  }).then((_) {
+    print("Data updated for ID: $key");
+  }).catchError((error) {
+    print("Failed to update data: $error");
   });
 }
+
 ```
 
 ### 4. Deleting Data
 ```dart
 void deleteData(String key) {
-  databaseRef.child("users").child(key).remove();
+  databaseRef.child("users").child(key).remove().then((_) {
+    print("Data deleted for ID: $key");
+  }).catchError((error) {
+    print("Failed to delete data: $error");
+  });
 }
+
 ```
 
 ## Full Flutter Code Example
