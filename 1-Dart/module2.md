@@ -14,8 +14,6 @@ Dart provides various data types with specific properties and methods. Below is 
 - `toLowerCase()` - Converts all characters in a string to lowercase.
 - `toUpperCase()` - Converts all characters in a string to uppercase.
 - `trim()` - Removes leading and trailing whitespaces.
-- `split(pattern)` - Splits the string at the specified pattern and returns a list.
-- `replaceAll(from, to)` - Replaces all occurrences of a substring with another substring.
 
 ### Example:
 ```dart
@@ -24,7 +22,6 @@ print(name.length); // Output: 10
 print(name.toLowerCase()); // Output: john doe
 print(name.toUpperCase()); // Output: JOHN DOE
 print(name.trim()); // Output: John Doe
-print(name.replaceAll("John", "Jane")); // Output: Jane Doe
 ```
 
 ---
