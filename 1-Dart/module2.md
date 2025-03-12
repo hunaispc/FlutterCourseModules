@@ -108,10 +108,9 @@ print(scores); // Output: {Alice: 90, Charlie: 88}
 ## Practical Questions
 ### String Operations
 1. Declare a variable named `name`, assign it a string value, and print its length.
-2. Create a list of 5 numbers and assign it to a variable named `numbers`.
-3. Create a list of 6 numbers and check whether the 4th element is even or odd.
-4. Create a list, extract its first and last elements into another list, and print it.
-5. Create a list, remove its first and last elements, and print the updated list.
+2. Create a list of 6 numbers and check whether the 4th element is even or odd.
+3. Create a list, add its first and last elements into another list, and print it.
+4. Create a list, remove its first and last elements, and print the updated list.
 
 ### Map Operations
 6. Create two maps, merge the second map into the first, and print the result.
