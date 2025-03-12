@@ -22,6 +22,7 @@ int b = 20;
 print(a > b);  // false
 print(a < b);  // true
 print(a == 10); // true
+print(a !=b); // true
 ```
 
 ---
