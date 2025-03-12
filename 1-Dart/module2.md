@@ -106,7 +106,7 @@ print(scores); // Output: {Alice: 90, Charlie: 88}
 
 ---
 ## Practical Questions
-### String Operations
+
 1. Declare a variable named `name`, assign it a string value, and print its length.
 2. Create a list of 6 numbers and check whether the 4th element is even or odd.
 3. Create a list, add its first and last elements into another list, and print it.
