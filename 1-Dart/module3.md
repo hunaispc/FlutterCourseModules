@@ -36,11 +36,17 @@ Logical operators are used to combine multiple conditions.
 
 ### **Example:**
 ```dart
-bool x = true;
-bool y = false;
-print(x && y);  // false
-print(x || y);  // true
-print(!x);      // false
+  bool isRainy = true;
+  bool hasUmbrella = false;
+
+  // Checking if it is rainy and I have an umbrella
+  print(isRainy && hasUmbrella);  // false (because I don't have an umbrella)
+
+  // Checking if it is rainy or I have an umbrella
+  print(isRainy || hasUmbrella);  // true (because it is rainy)
+
+  // Checking if it's not rainy
+  print(!isRainy);  // false (because it is rainy)
 ```
 
 ---
