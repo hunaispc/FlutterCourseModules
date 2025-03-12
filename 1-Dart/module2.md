@@ -97,7 +97,7 @@ print(numbers.reversed.toList()); // Output: [5, 4, 3, 2, 1]
 ### Example:
 ```dart
 Map<String, int> scores = {"Alice": 90, "Bob": 85};
-scores["Charlie"] = 88;
+scores.addAll({"Charlie":88});
 scores.remove("Bob");
 print(scores.containsKey("Alice")); // Output: true
 print(scores.containsValue(85)); // Output: false
