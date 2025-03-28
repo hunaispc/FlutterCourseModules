@@ -177,7 +177,7 @@ class AuthRepository {
   final ApiClient apiClient = ApiClient();
 
   Future<AuthModel> signIn(String email, String password) async {
-    String url = "http://45.159.221.50:9890/api/signin";
+    String url = "http://45.159.221.50:8868/api/signin";
         var body = {
       "email": email,
       "password": password,
