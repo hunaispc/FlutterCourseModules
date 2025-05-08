@@ -255,52 +255,6 @@ SizedBox(
   ),
 )
 ```
-
----
-
-## 🔘 Different Button Widgets
-### ElevatedButton
-A material design button that elevates when pressed.
-
-```dart
-ElevatedButton(
-  onPressed: () {},
-  child: Text('Elevated Button'),
-)
-```
-
-### OutlinedButton
-A button with an outlined border.
-
-```dart
-OutlinedButton(
-  onPressed: () {},
-  child: Text('Outlined Button'),
-)
-```
-
-### TextButton
-A button with no elevation or border, used for text-based actions.
-
-```dart
-TextButton(
-  onPressed: () {},
-  child: Text('Text Button'),
-)
-```
-
-### FloatingActionButton
-A circular button used for primary actions.
-
-```dart
-FloatingActionButton(
-  onPressed: () {},
-  child: Icon(Icons.add),
-)
-```
-
----
-
 ## 📢 Dialog Box (AlertDialog)
 The `AlertDialog` widget is used to display pop-up messages.
 
