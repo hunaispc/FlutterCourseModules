@@ -198,21 +198,6 @@ showTimePicker(
   initialTime: TimeOfDay.now(),
 );
 ```
-
----
-
-## 🏗️ Stepper Widget
-The `Stepper` widget allows users to navigate through a sequence of steps.
-
-```dart
-Stepper(
-  steps: [
-    Step(title: Text('Step 1'), content: Text('This is the first step')),
-    Step(title: Text('Step 2'), content: Text('This is the second step')),
-  ],
-)
-```
-
 ---
 ## 📝 TextField Widget
 The `TextField` widget allows users to enter text.
