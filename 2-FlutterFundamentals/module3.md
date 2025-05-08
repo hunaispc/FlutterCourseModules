@@ -89,9 +89,9 @@ Row(
 ```dart
 ListView(
   children: [
-    ListTile(title: Text('Item 1')),
-    ListTile(title: Text('Item 2')),
-    ListTile(title: Text('Item 3')),
+   Container(width: 200,height: 50,color: Colors.yellow,),
+   Container(width: 200,height: 50,color: Colors.blue,),
+   Container(width: 200,height: 50,color: Colors.black,)
   ],
 )
 ```
@@ -100,7 +100,7 @@ ListView(
 ListView.builder(
   itemCount: 10,
   itemBuilder: (context, index) {
-    return ListTile(title: Text('Item \$index'));
+    return  Container(width: 200,height: 50,color: Colors.yellow,);
   },
 )
 ```
@@ -108,7 +108,7 @@ ListView.builder(
 ListView.separated(
   itemCount: 10,
   itemBuilder: (context, index) {
-    return ListTile(title: Text('Item \$index'));
+    return  Container(width: 200,height: 50,color: Colors.yellow,);
   },
   separatorBuilder: (context, index) {
     return Divider(); // Or any widget like SizedBox(height: 10)
