@@ -104,7 +104,17 @@ ListView.builder(
   },
 )
 ```
-
+```dart
+ListView.separated(
+  itemCount: 10,
+  itemBuilder: (context, index) {
+    return ListTile(title: Text('Item \$index'));
+  },
+  separatorBuilder: (context, index) {
+    return Divider(); // Or any widget like SizedBox(height: 10)
+  },
+)
+```
 ### GridView Types
 
 ```dart
