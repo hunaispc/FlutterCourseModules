@@ -131,7 +131,7 @@ class CounterProvider extends ChangeNotifier {
 class CounterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final counterProvider = Provider.of<CounterProvider>(context);
+
 
     return Scaffold(
       appBar: AppBar(title: Text('Counter with Provider')),
