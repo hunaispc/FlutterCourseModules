@@ -140,7 +140,7 @@ class CounterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
          Consumer<CounterProvider>(builder: (BuildContext context, value, Widget? child) {
-              return Text(value.counter);
+              return Text(value.counter.toString());
             },),
             ElevatedButton(
               onPressed: (){
