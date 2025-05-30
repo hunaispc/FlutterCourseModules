@@ -139,9 +139,14 @@ class CounterScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Counter: ${counterProvider.counter}', style: TextStyle(fontSize: 24)),
+         Consumer<A>(builder: (BuildContext context, value, Widget? child) {
+              return Text(value.name);
+            },),
             ElevatedButton(
-              onPressed: counterProvider.increment,
+              onPressed: (){
+                //whenever you want to display changes in ui , change listen parameeter as false, by default it is true
+                Provider.of<A>(context, listen: false).increment();
+},
               child: Text('Increase Counter'),
             ),
           ],
