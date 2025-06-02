@@ -113,45 +113,6 @@ Future<void> signInWithGoogle() async {
 }
 ```
 
-### OTP Authentication
-
-Enable Phone authentication in Firebase Console.
-
-#### Sending OTP
-
-```dart
-import 'package:firebase_auth/firebase_auth.dart';
-
-Future<void> sendOTP(String phoneNumber) async {
-  await FirebaseAuth.instance.verifyPhoneNumber(
-    phoneNumber: phoneNumber,
-    verificationCompleted: (PhoneAuthCredential credential) async {
-      await FirebaseAuth.instance.signInWithCredential(credential);
-    },
-    verificationFailed: (FirebaseAuthException e) {
-      print("Error: $e");
-    },
-    codeSent: (String verificationId, int? resendToken) {
-      print("Code Sent: $verificationId");
-    },
-    codeAutoRetrievalTimeout: (String verificationId) {},
-  );
-}
-```
-
-#### Verifying OTP
-
-```dart
-Future<void> verifyOTP(String verificationId, String smsCode) async {
-  PhoneAuthCredential credential = PhoneAuthProvider.credential(
-    verificationId: verificationId,
-    smsCode: smsCode,
-  );
-  await FirebaseAuth.instance.signInWithCredential(credential);
-  print("OTP Verified and User Logged In");
-}
-```
-
 ## Full Example Code
 
 ```dart
@@ -201,12 +162,6 @@ class AuthScreen extends StatelessWidget {
                 await signInWithGoogle();
               },
               child: Text("Sign in with Google"),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                await sendOTP("+1234567890");
-              },
-              child: Text("Send OTP"),
             ),
           ],
         ),
