@@ -45,7 +45,8 @@ For Google and Phone Authentication, add the SHA keys to Firebase:
 
 ```sh
 # Run this command in the terminal
-keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore -storepass android -keypass android
+/path/to/jdk/bin/keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore -storepass android -keypass android
+
 ```
 
 Copy the SHA-1 and SHA-256 keys and add them to the Firebase project settings under "SHA Certificate Fingerprints".
